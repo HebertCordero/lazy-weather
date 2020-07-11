@@ -10,8 +10,8 @@ if ('geolocation' in navigator) {
       const api_url = `weather/${lat},${lon}`;
       const response = await fetch(api_url);
       const json = await response.json();
-      console.log(json);
       weather = json.weather;
+      console.log(weather)
       document.getElementById('country').textContent = weather.sys.country;
       document.getElementById('temp').textContent = weather.main.temp;
       document.getElementById('feels').textContent = weather.main.feels_like;
