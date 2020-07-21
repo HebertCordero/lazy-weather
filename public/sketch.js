@@ -39,6 +39,7 @@ if ('geolocation' in navigator) {
     };
     const db_response = await fetch('/api', options);
     const db_json = await db_response.json();
+    console.log(db_json)
   });
 } else {
   console.log('geolocation not available');
