@@ -36,13 +36,9 @@ app.post('/api', (request, response) => {
 app.get('/weather/:latlon', async (request, response) => {
   console.log(request.params);
   const latlon = request.params.latlon.split(',');
-  console.log(latlon);
-  const lat = latlon[0];
-  const lon = latlon[1];
-  console.log(lat, lon);
   const api_key = process.env.API_KEY;
-  //api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric
-  const weather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
+  //const weather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
+  const weather_url = `https://api.openweathermap.org/data/2.5/weather?q=${latlon}&appid=${api_key}&units=metric`;
   const weather_response = await fetch(weather_url);
   const weather_data = await weather_response.json();
 
@@ -60,7 +56,6 @@ app.get('/app/weather/:latlon', async (request, response) => {
   const lon = latlon[1];
   console.log(lat, lon);
   const api_key = process.env.API_KEY;
-  //api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric
   const weather_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${api_key}&units=metric`;
   const weather_response = await fetch(weather_url);
   const weather_data = await weather_response.json();
