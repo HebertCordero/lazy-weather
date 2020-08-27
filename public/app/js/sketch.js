@@ -32,7 +32,7 @@ $.getJSON("http://ip-api.com/json", async function (resp, status) {
             *storm
             *fallout
         */
-       document.getElementById('currentCity').innerHTML = resp.country + ", " + resp.city
+        document.getElementById('currentCity').innerHTML = resp.country + ", " + resp.city
         for (var i = 0; i < 5; i++) {
           // UTC to Date Converter
           var utcSeconds = weather.daily[i].dt;
